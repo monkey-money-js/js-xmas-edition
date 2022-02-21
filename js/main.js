@@ -2,34 +2,33 @@
 function validarNombre(nombre){
     if (nombre.length===0){
         return 'Este campo no puede estar vacio';
-    }
-    if (nombre.length>49){
+    } else if (nombre.length>49){
         return 'Este campo debe tener menos de 50 caracteres';
-    }
-    if (!/^[A-z]+$/.test(nombre)){
+    } else if (!/^[A-z]+$/i.test(nombre)){
         return 'Este campo solo acepta letras';
+    } else{
+        return '';
     }
-    return '';
 }
 
 function validarCiudad(ciudad){
     if (ciudad.length===0){
         return 'Debe seleccionar una ciudad';
+    } else {
+        return '';
     }
-    return '';
 }
 
 function validarDescripcionRegalo(descripcionRegalo){
     if (descripcionRegalo.length === 0){
         return 'Este campo no puede estar vacio';
-    }
-    if (descripcionRegalo.length>99){
+    } else if (descripcionRegalo.length>99){
         return 'Este campo debe tener menos de 100 caracteres';
-    }
-    if (!/^[A-z0-9]/.test(descripcionRegalo)){ 
+    } else if (!/^[A-z0-9]+$/i.test(descripcionRegalo)){ 
         return 'Este campo solo acepta numeros y letras';
+    } else{
+        return '';
     }
-    return '';
 }
 
 function validarForm(event){
