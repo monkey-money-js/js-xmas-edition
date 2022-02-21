@@ -34,13 +34,13 @@ function validarDescripcionRegalo(descripcionRegalo){
 function validarForm(event){
     event.preventDefault();
 
-    const nombre = $form.nombre.value;
-    const ciudad = $form.ciudad.value;
-    const descripcionRegalo = $form['descripcion-regalo'].value;
+    let nombre = $form.nombre.value;
+    let ciudad = $form.ciudad.value;
+    let descripcionRegalo = $form['descripcion-regalo'].value;
 
-    const errorNombre = validarNombre(nombre); 
-    const errorCiudad = validarCiudad(ciudad);
-    const errorDescripcionRegalo = validarDescripcionRegalo(descripcionRegalo);
+    let errorNombre = validarNombre(nombre); 
+    let errorCiudad = validarCiudad(ciudad);
+    let errorDescripcionRegalo = validarDescripcionRegalo(descripcionRegalo);
 
     const errores = {
         nombre: errorNombre,
