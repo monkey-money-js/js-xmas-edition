@@ -53,12 +53,20 @@ function validarForm(event){
 function manejarErrores(errores){
     if (errores.nombre !== ''){
         $form.nombre.className = 'error';
+    } else{
+        $form.nombre.className = '';
     }
+
     if (errores.ciudad !== ''){
         $form.ciudad.className = 'error';
+    } else{
+        $form.ciudad.className = '';
     }
+
     if (errores.regalo !== ''){
         $form['descripcion-regalo'].className = 'error';
+    } else{
+        $form['descripcion-regalo'].className = '';
     }
 }
 
