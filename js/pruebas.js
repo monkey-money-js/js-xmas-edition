@@ -1,15 +1,40 @@
-function probarValidarNombre() {
-  console.assert(
-      validarNombre('') === 'Este campo debe tener al menos 1 caracter',
-      'Validar nombre no validó que el nombre no sea vacío',
-  );
-
-  console.assert(
-      validarNombre(
-          '111111111111111111111111111111111111111111111111111111111111111111111111111111111111111') ===
-      'Este campo debe tener menos de 50 caracteres',
-      'Validar nombre no validó que el nombre sea menor a 50 caracteres',
-  );
+function pruebaValidarNombre(){
+    console.assert(
+        validarNombre('') === 'Este campo no puede estar vacio',
+        'validarNombre no comprobo que el campo este vacio'
+    )
+    console.assert(
+        validarNombre('lfgjdslkfjgkldsfgkfdsgkfdgkdfsjgksdfgjdffsdgsdfgsdfgdsfgdsfgfsdgsdfg') === 'Este campo debe tener menos de 50 caracteres',
+        'validarNombre no comprobo que el campo sea menor a 50 caracteres'
+    )
+    console.assert(
+        validarNombre('5894535') === 'Este campo solo acepta letras',
+        'validarNombre no comprobo que el campo sea de solo caracteres'
+    )
 }
 
-probarValidarNombre();
+function pruebaValidarCiudad(){
+    console.assert(
+        validarCiudad('') === 'Debe seleccionar una ciudad',
+        'validarCiudad no comprobo que no se ha seleccionado nada'
+    )
+}
+
+function pruebaValidarDescripcionRegalo(){
+    console.assert(
+        validarDescripcionRegalo('') === 'Este campo no puede estar vacio',
+        'validarDescripcionRegalo no comprobo que el campo este vacio'
+    )
+    console.assert(
+        validarDescripcionRegalo('jfkdsfnkjdsnfndsjfknsdjanfjksdnfjkdnsfjksdnjfknasdjkfnjkdnafjkasdnfkjndsafjkdasnfdasjkfndasjkfnfjkndajknfjkadsn') === 'Este campo debe tener menos de 100 caracteres',
+        'validarDescripcionRegalo no comprobo que el campo tenga menos de 100 caracteres'
+    )
+    console.assert(
+        validarDescripcionRegalo(',.,.,.,.') === 'Este campo solo acepta numeros y letras',
+        'validarDescripcionRegalo no comprobo que el campo sea solo de letras y numeros'
+    )
+}
+
+pruebaValidarNombre();
+pruebaValidarCiudad();
+pruebaValidarDescripcionRegalo();
