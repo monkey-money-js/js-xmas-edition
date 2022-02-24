@@ -57,6 +57,7 @@ function validarForm(event){
 
 function manejarErrores(errores){
    const keys = Object.keys(errores);
+   //borrarErrores();
    const $errores = document.querySelector('#errores');
    let contadorErrores = 0;
 
@@ -67,6 +68,7 @@ function manejarErrores(errores){
         contadorErrores++;
         $form[key].className = 'error';
         const $error = document.createElement('li');
+        $error.className = 'error-list';
         $error.innerText = error;
         $errores.appendChild($error);
         /// borrar los li creados antes de empezar para no tener el error ese
@@ -78,6 +80,14 @@ function manejarErrores(errores){
 
    return contadorErrores;
 }
+
+function borrarErrores(){
+    const arrayError = document.querySelectorAll('.error-list');
+    for (let i=0; i<arrayError.length; i++){
+        arrayError[i].remove();
+    }
+}
+
 
 const $form = document.querySelector('#carta-a-santa');
 $form.onsubmit = validarForm;
