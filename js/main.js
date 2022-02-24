@@ -45,29 +45,38 @@ function validarForm(event){
     const errores = {
         nombre: errorNombre,
         ciudad: errorCiudad,
-        regalo: errorDescripcionRegalo
+        'descripcion-regalo': errorDescripcionRegalo
     }
-    manejarErrores(errores);
+    const esExito = manejarErrores(errores) === 0;
+    if (esExito){
+        $form.className = 'oculto';
+        document.querySelector('#exito').className = '';
+        /// que el mensaje se muestre 5 segundos y lo redireccione a wishlist.html
+    }
 }
 
 function manejarErrores(errores){
-    if (errores.nombre !== ''){
-        $form.nombre.className = 'error';
-    } else{
-        $form.nombre.className = '';
-    }
+   const keys = Object.keys(errores);
+   const $errores = document.querySelector('#errores');
+   let contadorErrores = 0;
 
-    if (errores.ciudad !== ''){
-        $form.ciudad.className = 'error';
+   keys.forEach(function(key){
+   
+    const error = errores[key];
+    if (error){
+        contadorErrores++;
+        $form[key].className = 'error';
+        const $error = document.createElement('li');
+        $error.innerText = error;
+        $errores.appendChild($error);
+        /// borrar los li creados antes de empezar para no tener el error ese
     } else{
-        $form.ciudad.className = '';
+        /// punto bonus: borrar el campo adeacuado
+        $form[key].className = '';
     }
+   });
 
-    if (errores.regalo !== ''){
-        $form['descripcion-regalo'].className = 'error';
-    } else{
-        $form['descripcion-regalo'].className = '';
-    }
+   return contadorErrores;
 }
 
 const $form = document.querySelector('#carta-a-santa');
