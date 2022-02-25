@@ -52,6 +52,9 @@ function validarForm(event){
         $form.className = 'oculto';
         document.querySelector('#exito').className = '';
         /// que el mensaje se muestre 5 segundos y lo redireccione a wishlist.html
+        setTimeout(() => {
+            location.assign('file:///C:/Users/Santi/Desktop/Escritorio/Archivos/Github/Repository/js-xmas-edition/wishlist.html');
+        }, 5000);
     }
 }
 
@@ -71,7 +74,6 @@ function manejarErrores(errores){
         $error.className = 'error-list';
         $error.innerText = error;
         $errores.appendChild($error);
-        /// borrar los li creados antes de empezar para no tener el error ese
     } else{
         /// punto bonus: borrar el campo adeacuado
         $form[key].className = '';
@@ -82,9 +84,7 @@ function manejarErrores(errores){
 }
 
 function borrarErrores(){
-    document.querySelectorAll('.error-list').forEach(function(error){
-        error.remove();
-    });
+    document.querySelectorAll('.error-list').forEach(error => error.remove()); 
 }
 
 
