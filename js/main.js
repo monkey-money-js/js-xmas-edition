@@ -57,7 +57,7 @@ function validarForm(event){
 
 function manejarErrores(errores){
    const keys = Object.keys(errores);
-   //borrarErrores();
+   borrarErrores();
    const $errores = document.querySelector('#errores');
    let contadorErrores = 0;
 
@@ -82,10 +82,9 @@ function manejarErrores(errores){
 }
 
 function borrarErrores(){
-    const arrayError = document.querySelectorAll('.error-list');
-    for (let i=0; i<arrayError.length; i++){
-        arrayError[i].remove();
-    }
+    document.querySelectorAll('.error-list').forEach(function(error){
+        error.remove();
+    });
 }
 
 
