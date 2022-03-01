@@ -51,7 +51,6 @@ function validarForm(event){
     if (esExito){
         $form.className = 'oculto';
         document.querySelector('#exito').className = '';
-        /// que el mensaje se muestre 5 segundos y lo redireccione a wishlist.html
         setTimeout(() => {
             location.assign('file:///C:/Users/Santi/Desktop/Escritorio/Archivos/Github/Repository/js-xmas-edition/wishlist.html');
         }, 5000);
@@ -75,7 +74,6 @@ function manejarErrores(errores){
         $error.innerText = error;
         $errores.appendChild($error);
     } else{
-        /// punto bonus: borrar el campo adeacuado
         $form[key].className = '';
     }
    });
@@ -83,10 +81,10 @@ function manejarErrores(errores){
    return contadorErrores;
 }
 
+
 function borrarErrores(){
     document.querySelectorAll('.error-list').forEach(error => error.remove()); 
 }
-
 
 const $form = document.querySelector('#carta-a-santa');
 $form.onsubmit = validarForm;
